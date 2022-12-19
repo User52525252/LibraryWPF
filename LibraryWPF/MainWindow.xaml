@@ -1,0 +1,77 @@
+﻿<Window x:Class="LibraryWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="dataGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0"
+                Grid.Column="0"
+                Orientation="Vertical">
+            <Button x:Name="btnAddBook"
+              Content="Dodaj Książke" Click="btnAddBook_Click"/>
+            <Button x:Name="btnEditBook"
+              Content="Edytuj Książke" Click="btnEditBook_Click"/>
+            <Button x:Name="btnDeleteBook"
+              Content="Usuń Książke" Click="btnDeleteBook_Click"/>
+            <Button x:Name="btnCheckOutBook"
+              Content="Wypożyczenie Książki" Click="btnCheckOutBook_Click"/>
+            <Button x:Name="btnCheckInBook"
+              Content="Zwrot Książki" Click="btnCheckInBook_Click"/>
+            <Button x:Name="btnSearch"
+              Content="Search" Click="btnSearch_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="dgBooks"
+              Grid.Row="0"
+              Grid.Column="1"
+              Grid.RowSpan="2"
+              AutoGenerateColumns="False"
+              SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="colTitle"
+                            Header="Title"
+                            Binding="{Binding Title}"/>
+                <DataGridTextColumn x:Name="colAuthor"
+                            Header="Author"
+                            Binding="{Binding Author}"/>
+                <DataGridTextColumn x:Name="colISBN"
+                            Header="ISBN"
+                            Binding="{Binding ISBN}"/>
+                <DataGridTextColumn x:Name="colPublisher"
+                            Header="Publisher"
+                            Binding="{Binding Publisher}"/>
+                <DataGridTextColumn x:Name="colStatus"
+                            Header="Status"
+                            Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Vertical">
+            <TextBlock x:Name="lblSearch"
+                 Text="Wyszukaj:"/>
+            <TextBox x:Name="txtSearch" />
+            <Label Content="Tytuł:"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="120" Name="TXT_title"/>
+            <Label Content="Autor:"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="120" Name="TXT_author"/>
+            <Label Content="ISBN:"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="120" Name="TXT_isbn"/>
+            <Label Content="Wydawca:"/>
+            <TextBox TextWrapping="Wrap" Text="" Name="TXT_publisher"/>
+            
+            <Label Content="Status:"/>
+            <TextBox TextWrapping="Wrap" Text="" Width="120" Name="TXT_status"/>
+        </StackPanel>
+    </Grid>
+</Window>
